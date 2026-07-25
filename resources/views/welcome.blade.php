@@ -21,7 +21,7 @@
                     @else
                         <a href="{{ route('guru.dashboard') }}" class="hover:bg-blue-700 px-3 py-2 rounded">Dashboard</a>
                     @endif
-                    <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                    <form action="{{ route('logout', [], false) }}" method="POST" style="display:inline;">
                         @csrf
                         <button type="submit" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded">Logout</button>
                     </form>

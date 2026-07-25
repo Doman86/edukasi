@@ -33,7 +33,7 @@
     @auth
         <!-- Navbar -->
         <nav class="bg-blue-600 text-white shadow-lg">
-            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
                 <div class="flex items-center gap-3">
                     @if (auth()->user()->role === 'guru' && auth()->user()->foto)
                         <img src="{{ asset('storage/' . auth()->user()->foto) }}" alt="Photo" class="h-10 w-10 rounded-full object-cover">
@@ -46,17 +46,17 @@
                         <h1 class="text-2xl font-bold">Web Edukasi</h1>
                     @endif
                 </div>
-                <div class="flex items-center gap-6">
-                    <span>{{ auth()->user()->name }} ({{ ucfirst(auth()->user()->role) }})</span>
+                <div class="flex flex-wrap items-center gap-2 justify-end text-sm md:text-base">
+                    <span class="truncate max-w-full md:max-w-xs">{{ auth()->user()->name }} ({{ ucfirst(auth()->user()->role) }})</span>
                     @if (auth()->user()->role === 'admin')
                         <a href="{{ route('admin.dashboard') }}" class="hover:bg-blue-700 px-3 py-2 rounded">Dashboard</a>
                     @else
                         <a href="{{ route('guru.dashboard') }}" class="hover:bg-blue-700 px-3 py-2 rounded">Dashboard</a>
                         <a href="{{ route('guru.soal.list') }}" class="hover:bg-blue-700 px-3 py-2 rounded">Soal</a>
                     @endif
-                    <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                    <form action="{{ route('logout', [], false) }}" method="POST" class="inline">
                         @csrf
-                        <button type="submit" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded">Logout</button>
+                        <button type="submit" class="bg-red-500 hover:bg-red-600 px-3 py-2 rounded">Logout</button>
                     </form>
                 </div>
             </div>

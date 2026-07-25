@@ -15,12 +15,12 @@
         @endif
     </div>
 
-    <div class="flex justify-between items-center">
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
             <h1 class="text-4xl font-bold text-gray-800">Dashboard Guru</h1>
             <p class="text-gray-600 mt-2">Selamat datang, <span class="font-semibold">{{ auth()->user()->name }}</span></p>
         </div>
-        <a href="{{ route('guru.soal.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
+        <a href="{{ route('guru.soal.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition text-center">
             + Tambah Soal
         </a>
     </div>
@@ -38,7 +38,7 @@
     </div>
 
     <!-- Tombol Quick Action -->
-    <div class="flex gap-4">
+    <div class="flex flex-col gap-4 sm:flex-row">
         <a href="{{ route('guru.soal.list') }}" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg text-center transition">
             Lihat Semua Soal
         </a>

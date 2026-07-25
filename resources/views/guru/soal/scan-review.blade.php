@@ -31,7 +31,7 @@
                 <p id="progressText" class="text-gray-600 text-xs mt-2">0%</p>
             </div>
 
-            <form id="scanForm" action="{{ route('guru.soal.scan.save') }}" method="POST" class="hidden space-y-6">
+            <form id="scanForm" action="{{ route('guru.soal.scan.save', [], false) }}" method="POST" class="hidden space-y-6">
                 @csrf
 
                 <!-- Hidden Fields -->

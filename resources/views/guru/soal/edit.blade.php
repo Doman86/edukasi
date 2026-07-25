@@ -6,7 +6,7 @@
 <div class="max-w-2xl mx-auto">
     <h1 class="text-3xl font-bold mb-8 text-gray-800">Edit Soal</h1>
 
-    <form action="{{ route('guru.soal.update', $soal) }}" method="POST" class="bg-white rounded-lg shadow-lg p-8 space-y-6">
+    <form action="{{ route('guru.soal.update', $soal, false) }}" method="POST" class="bg-white rounded-lg shadow-lg p-8 space-y-6">
         @csrf
         @method('PUT')
 
