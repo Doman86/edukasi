@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="space-y-6">
-    <div class="flex justify-between items-center">
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <h1 class="text-3xl font-bold text-gray-800">Daftar Soal Saya</h1>
-        <div class="flex gap-3">
-            <a href="{{ route('guru.soal.scan.upload') }}" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition flex items-center gap-2">
+        <div class="flex flex-col sm:flex-row gap-3">
+            <a href="{{ route('guru.soal.scan.upload') }}" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition flex items-center justify-center gap-2">
                 📸 Scan Soal
             </a>
             <a href="{{ route('guru.soal.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
@@ -20,10 +20,10 @@
         <div class="grid grid-cols-1 gap-6">
             @foreach ($soal as $s)
                 <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-500">
-                    <div class="flex justify-between items-start">
+                    <div class="flex flex-col gap-4 md:flex-row md:items-start">
                         <div class="flex-1">
                             <h3 class="text-xl font-bold text-gray-800 mb-2">{{ $s->pertanyaan }}</h3>
-                            <div class="flex gap-4 mb-4">
+                            <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
                                     {{ $s->kelas->nama_kelas }}
                                 </span>
@@ -76,15 +76,15 @@
                         </div>
 
                         <!-- Actions -->
-                        <div class="flex gap-2 ml-4">
+                        <div class="flex flex-col gap-2 md:ml-4 md:justify-start md:items-end md:self-start">
                             <a href="{{ route('guru.soal.edit', $s) }}" 
-                                class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded transition text-sm">
+                                class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded transition text-sm text-center">
                                 Edit
                             </a>
-                            <form action="{{ route('guru.soal.delete', $s) }}" method="POST" style="display:inline;">
+                            <form action="{{ route('guru.soal.delete', $s, false) }}" method="POST" class="inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition text-sm"
+                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition text-sm w-full md:w-auto"
                                     onclick="return confirm('Yakin ingin menghapus soal ini?')">
                                     Hapus
                                 </button>

@@ -40,13 +40,13 @@
                                 <td class="px-4 py-2">{{ $guru->email }}</td>
                                 <td class="px-4 py-2">{{ $guru->created_at->format('d M Y') }}</td>
                                 <td class="px-4 py-2 space-x-2">
-                                    <form action="{{ route('admin.verify', $guru) }}" method="POST" style="display:inline;">
+                                    <form action="{{ route('admin.verify', $guru, false) }}" method="POST" style="display:inline;">
                                         @csrf
                                         <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm transition">
                                             Verifikasi
                                         </button>
                                     </form>
-                                    <form action="{{ route('admin.reject', $guru) }}" method="POST" style="display:inline;">
+                                    <form action="{{ route('admin.reject', $guru, false) }}" method="POST" style="display:inline;">
                                         @csrf
                                         <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm transition"
                                             onclick="return confirm('Yakin ingin menolak guru ini?')">

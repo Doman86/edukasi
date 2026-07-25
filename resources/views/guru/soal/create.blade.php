@@ -11,7 +11,7 @@
         </a>
     </div>
 
-    <form action="{{ route('guru.soal.store') }}" method="POST" class="bg-white rounded-lg shadow-lg p-8 space-y-6">
+    <form action="{{ route('guru.soal.store', [], false) }}" method="POST" class="bg-white rounded-lg shadow-lg p-8 space-y-6">
         @csrf
 
         <!-- Kelas -->

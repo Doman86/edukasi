@@ -7,7 +7,7 @@
     <h1 class="text-3xl font-bold mb-2 text-gray-800">📸 Scan Soal Otomatis</h1>
     <p class="text-gray-600 mb-8">Upload foto soal untuk ekstrak otomatis menggunakan OCR (Optical Character Recognition)</p>
 
-    <form action="{{ route('guru.soal.scan.process') }}" method="POST" enctype="multipart/form-data" class="bg-white rounded-lg shadow-lg p-8 space-y-6">
+    <form action="{{ route('guru.soal.scan.process', [], false) }}" method="POST" enctype="multipart/form-data" class="bg-white rounded-lg shadow-lg p-8 space-y-6">
         @csrf
 
         <!-- Image Upload -->
